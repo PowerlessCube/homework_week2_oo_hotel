@@ -10,5 +10,4 @@ class Guest
 
 end
 
-
 nil

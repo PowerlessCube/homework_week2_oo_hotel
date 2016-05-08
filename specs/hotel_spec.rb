@@ -35,7 +35,6 @@ class TestHotel < MiniTest::Test
     assert_equal( nil, @hotel.hotel_rooms[2].guest )
   end
 
-
 end
 
 nil

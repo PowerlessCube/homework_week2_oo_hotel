@@ -27,10 +27,6 @@ class Hotel
     end
   end
 
-
-
-
-
 end
 
 
