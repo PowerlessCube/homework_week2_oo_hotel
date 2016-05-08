@@ -26,15 +26,24 @@ class TestHotel < MiniTest::Test
   end
 
   def test_guest_check_in
-    @hotel.guest_check_in( @guest1, @hotel_rooms[0].room_number )
-    assert_equal( @guest1, @hotel.hotel_rooms[0].guest )
+    @hotel.guest_check_in( @guest1.guest_name, @hotel_rooms[0].room_number )
+    assert_equal( "Mackay", @hotel.hotel_rooms[0].guest.guest_name )
   end
 
-  def test_guest_check_out
-    @hotel.guest_check_out( @hotel_rooms[2].room_number )
-    assert_equal( nil, @hotel.hotel_rooms[2].guest )
-  end
 
+
+
+
+  # def test_number_of_rooms
+  #   assert_equal( 3 , @hotel.hotel_rooms.length )
+  # end
+  #
+  # def test_room_numbers
+  #   assert_equal( "101", @hotel.hotel_rooms[0].room_number )
+  #   assert_equal( "102", @hotel.hotel_rooms[1].room_number )
+  #   assert_equal( "103", @hotel.hotel_rooms[2].room_number )
+  #
+  # end
 
 end
 

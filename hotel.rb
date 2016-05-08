@@ -8,29 +8,26 @@ class Hotel
 
   def initialize( hotel_name, hotel_rooms )
     @hotel_name = hotel_name
-    @hotel_rooms = Array.new( hotel_rooms, Room.new( 2 ).beds )
+    @hotel_rooms = hotel_rooms
   end
 
-  def search_by_guest(guest_name)
-
-    room_index = 0
-
-    while room_index < @hotel_rooms.length
-      if @hotel_rooms[room_index].find { | guest | guest != guest_name }
-        return @hotel_rooms[room_index].index(room_index)
+  def guest_check_in( guest, room_number )
+    for room in @hotel_rooms
+      if room.room_number == room_number && room.is_available == true
+        room.check_in( guest )
       end
-
-      room_index += 1
     end
   end
 
-  # def guest_check_in
-  #   room = []
-  #   for room_index in @hotel_rooms.hotel_rooms
-  #     binding.pry
-  #   end
-  #   return room
-  # end
+  def guest_check_out( room_number )
+    for room in @hotel_rooms
+      if room.room_number == room_number
+        room.check_out
+      end
+    end
+  end
+
+
 
 
 
