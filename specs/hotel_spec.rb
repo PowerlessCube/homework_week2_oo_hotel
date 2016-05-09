@@ -9,7 +9,7 @@ class TestHotel < MiniTest::Test
     @guest1 = Guest.new( "Mackay" )
     @guest2 = Guest.new( "Heggeland" )
 
-    @hotel_rooms = [ Room.new( "101", nil ), Room.new( "102", nil ), Room.new( "103", @guest2 ) ]
+    @hotel_rooms = [ Room.new( "101", nil, false ), Room.new( "102", nil, false ), Room.new( "103", @guest2, true ) ]
     @hotel = Hotel.new( "Hotel Paridisso", @hotel_rooms )
   end
 
@@ -33,6 +33,14 @@ class TestHotel < MiniTest::Test
   def test_guest_check_out
     @hotel.guest_check_out( @hotel_rooms[2].room_number )
     assert_equal( nil, @hotel.hotel_rooms[2].guest )
+  end
+
+  def test_list_of_available_rooms
+    assert_equal( [ @hotel.hotel_rooms[0], @hotel.hotel_rooms[1] ],  @hotel.list_of_available_rooms( @hotel.hotel_rooms ) )
+  end
+
+  def test_list_rooms_with_room_service
+    assert_equal( [ @hotel.hotel_rooms[2] ], @hotel.list_rooms_with_room_service( @hotel.hotel_rooms ) )
   end
 
 end

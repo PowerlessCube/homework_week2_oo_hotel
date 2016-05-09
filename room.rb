@@ -2,16 +2,17 @@ require( "pry-byebug" )
 
 class Room
 
-  attr_accessor( :room_number, :guest)
+  attr_accessor( :room_number, :guest, :room_service)
 
-  def initialize( room_number, guest )
+  def initialize( room_number, guest, room_service )
     @room_number = room_number
     @guest = guest
+    @room_service = room_service
   end
 
 #checks if room is available - returns true if empty, false if occupied
-  def is_available()
-    (@guest == nil) ? result = true : result = false
+  def is_available(  )
+    @guest == nil ? result = true : result = false
     return result
   end
 
@@ -19,8 +20,12 @@ class Room
     @guest = guest
   end
 
-  def check_out()
+  def check_out(  )
     @guest = nil
+  end
+
+  def room_service(  )
+    is_available == true ? result = false : result = true
   end
 
 

@@ -8,8 +8,8 @@ class TestRoom < MiniTest::Test
 
   def setup
     @guest = Guest.new( "Mackay" )
-    @empty_room = Room.new( "101", nil )
-    @full_room = Room.new( "102", @guest )
+    @empty_room = Room.new( "101", nil, false )
+    @full_room = Room.new( "102", @guest, true )
   end
 
   def test_room_number
@@ -26,9 +26,20 @@ class TestRoom < MiniTest::Test
     assert_equal( nil, @full_room.guest )
   end
 
-  def test_is_available
+  def test_is_available_empty_room
     assert_equal( true, @empty_room.is_available )
+  end
+
+  def test_is_available_full_room
     assert_equal( false, @full_room.is_available )
+  end
+
+  def test_room_service_empty_room
+    assert_equal( false, @empty_room.room_service )
+  end
+
+  def test_room_service_full_room
+    assert_equal( true, @full_room.room_service )
   end
 
 end
