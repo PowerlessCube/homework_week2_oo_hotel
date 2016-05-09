@@ -6,15 +6,15 @@ require( "minitest/rg" )
 class TestHotel < MiniTest::Test
 
   def setup
-    @guest1 = Guest.new( "Mackay" )
-    @guest2 = Guest.new( "Heggeland" )
+    @guest1 = Guest.new( "Henley" )
+    @guest2 = Guest.new( "Frey" )
 
     @hotel_rooms = [ Room.new( "101", nil, false ), Room.new( "102", nil, false ), Room.new( "103", @guest2, true ) ]
-    @hotel = Hotel.new( "Hotel Paridisso", @hotel_rooms )
+    @hotel = Hotel.new( "Hotel California", @hotel_rooms )
   end
 
   def test_hotel_name
-    assert_equal( "Hotel Paridisso", @hotel.hotel_name )
+    assert_equal( "Hotel California", @hotel.hotel_name )
   end
 
   def test_hotel_size
@@ -36,11 +36,11 @@ class TestHotel < MiniTest::Test
   end
 
   def test_list_of_available_rooms
-    assert_equal( [ @hotel.hotel_rooms[0], @hotel.hotel_rooms[1] ],  @hotel.list_of_available_rooms( @hotel.hotel_rooms ) )
+    assert_equal( [ @hotel.hotel_rooms[0], @hotel.hotel_rooms[1] ],  @hotel.list_of_available_rooms(  ) )
   end
 
   def test_list_rooms_with_room_service
-    assert_equal( [ @hotel.hotel_rooms[2] ], @hotel.list_rooms_with_room_service( @hotel.hotel_rooms ) )
+    assert_equal( [ @hotel.hotel_rooms[2] ], @hotel.list_rooms_with_room_service(  ) )
   end
 
 end

@@ -27,12 +27,12 @@ class Hotel
     end
   end
 
-  def list_of_available_rooms( hotel_rooms )
-    hotel_rooms.reject { |room| room.is_available != true }
+  def list_of_available_rooms(  )
+    @hotel_rooms.reject { |room| room.is_available != true }
   end
 
-  def list_rooms_with_room_service( hotel_rooms )
-    hotel_rooms.reject { |room| room.room_service != true }
+  def list_rooms_with_room_service(  )
+    @hotel_rooms.reject { |room| room.room_service != true }
   end
 
 end

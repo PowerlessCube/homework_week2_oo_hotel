@@ -7,7 +7,7 @@ require( "pry-byebug" )
 class TestRoom < MiniTest::Test
 
   def setup
-    @guest = Guest.new( "Mackay" )
+    @guest = Guest.new( "Bowie" )
     @empty_room = Room.new( "101", nil, false )
     @full_room = Room.new( "102", @guest, true )
   end
